@@ -1,0 +1,77 @@
+# .gitignore - Arquivos e pastas a ignorar no Git
+
+# Sistemas Operacionais
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+*.code-workspace
+.project
+.pydevproject
+.settings/
+
+# Node (se usar build tools no futuro)
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.env
+venv/
+
+# Logs
+*.log
+logs/
+
+# OS Temp
+.tmp/
+temp/
+
+# Configurações locais
+local-config.js
+.env.local
+.env.*.local
+
+# Arquivos de teste
+test-results/
+coverage/
+
+# Backups
+*.bak
+*.backup
+*~
+
+# Imagens grandes ou temporárias
+*.psd
+*.sketch
+assets/temp/
+
+# Arquivos comprimidos
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# node_modules
+node_modules/
+package-lock.json
+yarn.lock

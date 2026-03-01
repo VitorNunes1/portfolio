@@ -1,0 +1,613 @@
+<!-- 🌟 EXTRAS - HTML AVANÇADO E COMPONENTES OPCIONAIS 🌟 -->
+
+<!-- 
+    Este arquivo contém componentes e funcionalidades opcionais
+    que você pode adicionar ao seu portfólio conforme necessário.
+-->
+
+<!-- ============================================
+     MODO ESCURO (DARK MODE) - BOTÃO TOGGLE
+     ============================================ -->
+
+<!-- Coloque isso na navbar se quiser adicionar modo escuro -->
+<style>
+    body.dark-mode {
+        --dark-bg: #ffffff;
+        --light-bg: #0f0f0f;
+        --text-dark: #ffffff;
+        --text-light: #cccccc;
+        --border-color: #333333;
+    }
+
+    body.dark-mode .navbar {
+        background: #1a1a1a;
+    }
+
+    body.dark-mode section {
+        background: #0f0f0f !important;
+    }
+
+    body.dark-mode .about-features {
+        background: #1a1a1a;
+    }
+
+    .dark-mode-toggle {
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        transition: var(--transition);
+    }
+
+    .dark-mode-toggle:hover {
+        color: var(--primary-color);
+    }
+</style>
+
+<!-- Botão Dark Mode (adicione na navbar) -->
+<button class="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+    <i class="fas fa-moon"></i>
+</button>
+
+<script>
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    updateDarkModeIcon();
+}
+
+function updateDarkModeIcon() {
+    const toggle = document.querySelector('.dark-mode-toggle i');
+    if (document.body.classList.contains('dark-mode')) {
+        toggle.classList.remove('fa-moon');
+        toggle.classList.add('fa-sun');
+    } else {
+        toggle.classList.remove('fa-sun');
+        toggle.classList.add('fa-moon');
+    }
+}
+
+// Aplicar preferência salva
+if (localStorage.getItem('darkMode') === 'true') {
+    toggleDarkMode();
+}
+</script>
+
+<!-- ============================================
+     SEÇÃO DE PROJETOS/PORTFÓLIO
+     ============================================ -->
+
+<section class="projects" id="projetos">
+    <div class="container">
+        <h2>Meus Projetos</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/projeto1.jpg" alt="Nome do Projeto 1" loading="lazy">
+                    <div class="project-overlay">
+                        <a href="https://github.com/seu-usuario/projeto1" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                        <a href="https://seu-projeto1.com" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Ver Live
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Nome do Projeto 1</h3>
+                    <p class="description">Descrição breve do projeto e tecnologias utilizadas.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Selenium</span>
+                        <span class="tag">BDD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/projeto2.jpg" alt="Nome do Projeto 2" loading="lazy">
+                    <div class="project-overlay">
+                        <a href="https://github.com/seu-usuario/projeto2" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Ver Código
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Nome do Projeto 2</h3>
+                    <p class="description">Outro projeto interessante que você desenvolveu.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">API Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.projects {
+    padding: 80px 20px;
+    background: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(108, 92, 231, 0.9);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 10px 20px;
+    background: white;
+    color: var(--primary-color);
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.project-link:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.project-info .description {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #f0f0f0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+</style>
+
+<!-- ============================================
+     SEÇÃO DE BLOG / ARTIGOS
+     ============================================ -->
+
+<section class="blog" id="blog">
+    <div class="container">
+        <h2>Últimos Artigos</h2>
+        
+        <div class="blog-grid">
+            <article class="blog-post">
+                <h3>Título do Artigo</h3>
+                <p class="date">
+                    <i class="fas fa-calendar"></i> 
+                    15 de Fevereiro, 2025
+                </p>
+                <p class="excerpt">
+                    Resumo interessante do seu artigo ou post sobre um tópico relevante...
+                </p>
+                <div class="blog-meta">
+                    <a href="#" class="read-more">Ler Mais →</a>
+                    <span class="category">QA</span>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <h3>Outro Título de Artigo</h3>
+                <p class="date">
+                    <i class="fas fa-calendar"></i> 
+                    10 de Fevereiro, 2025
+                </p>
+                <p class="excerpt">
+                    Compartilhe suas experiências e conhecimentos com a comunidade...
+                </p>
+                <div class="blog-meta">
+                    <a href="#" class="read-more">Ler Mais →</a>
+                    <span class="category">Desenvolvimento</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<style>
+.blog {
+    padding: 80px 20px;
+    background: #f8f9fa;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-post {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.blog-post h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.blog-post .date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-post .excerpt {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-more {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.read-more:hover {
+    gap: 0.5rem;
+    text-decoration: underline;
+}
+
+.category {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+</style>
+
+<!-- ============================================
+     CAROUSEL / SLIDER (usando Swiper)
+     ============================================ -->
+
+<!--
+Para usar carousel, adicione o Swiper CDN no <head>:
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+Depois use assim:
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+<script>
+const swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+    },
+});
+</script>
+-->
+
+<!-- ============================================
+     FORMULÁRIO DE CONTATO COM VALIDAÇÃO
+     ============================================ -->
+
+<form class="contact-form" id="contact-form" style="display: block; max-width: 600px; margin: 2rem auto;">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" required placeholder="Seu nome">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Assunto</label>
+        <input type="text" id="subject" name="subject" required placeholder="Assunto da mensagem">
+    </div>
+
+    <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" required placeholder="Sua mensagem..." rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+</form>
+
+<style>
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.contact-form button {
+    width: 100%;
+}
+</style>
+
+<script>
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    
+    // Aqui você integraria com seu serviço (Emailjs, Formspree, etc)
+    console.log('Formulário enviado:', data);
+    
+    alert('Obrigado! Vou responder em breve.');
+    e.target.reset();
+});
+</script>
+
+<!-- ============================================
+     COMPONENTE DE DEPOIMENTOS / TESTIMONIALS
+     ============================================ -->
+
+<section class="testimonials" style="padding: 80px 20px; background: white;">
+    <div class="container">
+        <h2>O Que Colegas Dizem</h2>
+        
+        <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div class="testimonial-card" style="background: #f8f9fa; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow);">
+                <div style="color: var(--primary-color); margin-bottom: 1rem;">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light); font-style: italic;">
+                    "Excelente profissional, muito dedicado aos testes e à qualidade do software..."
+                </p>
+                <p style="font-weight: 600; color: var(--text-dark);">João Silva</p>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Tech Lead - Empresa XYZ</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     BARRA DE PROGRESSO DE SCROLL
+     ============================================ -->
+
+<style>
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    z-index: 1000;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+</style>
+
+<!-- Adicione no HTML logo após <body> -->
+<div class="scroll-progress"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (scrollTop / docHeight) * 100;
+    
+    const progressBar = document.querySelector('.scroll-progress');
+    if (progressBar) progressBar.style.width = scrolled + '%';
+});
+</script>
+
+<!-- ============================================
+     EFEITO CONFETTI (para comemorações)
+     ============================================ -->
+
+<script>
+// CDN para confetti
+// <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+// Usar assim:
+// confetti();
+
+// Ou customizar:
+// confetti({
+//     particleCount: 100,
+//     spread: 70,
+//     origin: { y: 0.6 }
+// });
+</script>
+
+<!-- ============================================
+     TOOLTIP CUSTOMIZADO
+     ============================================ -->
+
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dotted var(--primary-color);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--text-dark);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+
+<!-- Uso: -->
+<!-- <span class="tooltip">Passe o mouse aqui<span class="tooltiptext">Eu sou um tooltip!</span></span> -->
+
+<!-- ============================================
+     FIM DOS EXTRAS
+     ============================================ -->
+
+<!-- 
+    Notas:
+    
+    1. Todos esses componentes são OPCIONAIS
+    2. Use os que faz sentido para seu portfólio
+    3. Adapte cores e estilos conforme necessário
+    4. Teste em mobile sempre!
+    5. Don't overcomplicate - keep it elegant
+    
+    Sucesso! 🚀
+-->
