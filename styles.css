@@ -867,6 +867,15 @@ a {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--light-bg);
+        padding: 20px 0;
+        gap: 1rem;
+        z-index: 99;
     }
 
     .hamburger {
