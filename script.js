@@ -6,14 +6,14 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.classList.toggle('open');
     hamburger.classList.toggle('active');
 });
 
 // Fecha menu ao clicar em um link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.style.display = 'none';
+        navLinks.classList.remove('open');
         hamburger.classList.remove('active');
     });
 });

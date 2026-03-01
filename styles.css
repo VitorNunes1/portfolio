@@ -868,14 +868,18 @@ a {
     .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px; /* height of navbar */
         left: 0;
-        width: 100%;
+        right: 0;
         background: var(--light-bg);
-        padding: 20px 0;
+        padding: 20px;
         gap: 1rem;
         z-index: 99;
+        box-sizing: border-box;
+    }
+    .nav-links.open {
+        display: flex;
     }
 
     .hamburger {
