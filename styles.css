@@ -872,6 +872,7 @@ a {
         top: 60px; /* height of navbar */
         left: 0;
         right: 0;
+        width: 100vw;
         background: var(--light-bg);
         padding: 20px;
         gap: 1rem;
@@ -880,6 +881,9 @@ a {
     }
     .nav-links.open {
         display: flex;
+    }
+    body.menu-open {
+        overflow-x: hidden;
     }
 
     .hamburger {
