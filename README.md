@@ -39,19 +39,10 @@ Portifólio/
 
 ## Como Usar
 
-### Opção 1: Abrir Localmente
+### Abrir Localmente
 1. Clone ou baixe este repositório
 2. Abra o arquivo `index.html` em seu navegador
-3. Pronto! O portfólio está funcionando
-
-### Opção 2: Deploy em Servidor
-1. Coloque os arquivos em seu servidor web
-2. Acesse via URL do seu domínio
-
-### Opção 3: GitHub Pages
-1. Faça upload para um repositório GitHub
-2. Ative GitHub Pages nas configurações
-3. Seu portfólio estará live!
+3. O portfólio estará visível no browser
 
 ## Personalização
 
